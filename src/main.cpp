@@ -7,6 +7,7 @@
 #include <wups/config/WUPSConfigItemMultipleValues.h>
 #include <wups/config/WUPSConfigItemStub.h>
 #include <wups/config_api.h>
+#include <notifications/notifications.h>
 
 /**
     Mandatory plugin information.
