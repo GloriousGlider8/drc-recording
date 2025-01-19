@@ -194,6 +194,8 @@ void ConfigMenuClosedCallback() {
 INITIALIZE_PLUGIN() {
     // Logging only works when compiled with `make DEBUG=1`. See the README for more information.
     initLogging();
+    NotificationModule_InitLibrary();
+    NotificationModule_AddInfoNotification("Plugin Initialised.");
     DEBUG_FUNCTION_LINE("INITIALIZE_PLUGIN of example_plugin!");
 
     WUPSConfigAPIOptionsV1 configOptions = {.name = "example_plugin_cpp"};
@@ -216,6 +218,7 @@ INITIALIZE_PLUGIN() {
     Gets called when the plugin will be unloaded.
 **/
 DEINITIALIZE_PLUGIN() {
+    NotificationModule_DeInitLibrary();
     DEBUG_FUNCTION_LINE("DEINITIALIZE_PLUGIN of example_plugin!");
 }
 
@@ -223,6 +226,7 @@ DEINITIALIZE_PLUGIN() {
     Gets called when an application starts.
 **/
 ON_APPLICATION_START() {
+    NotificationModule_AddInfoNotification("A new Application was started.");
     initLogging();
 
     DEBUG_FUNCTION_LINE("ON_APPLICATION_START of example_plugin!");
